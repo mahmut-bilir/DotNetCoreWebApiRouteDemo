@@ -1,14 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
-namespace DotNetCoreWebApiRouteDemo.HelloController  
+namespace DotNetCoreWebApiRouteDemo.HelloController
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class HelloController : ControllerBase
+  [ApiController]
+  [Route("api/greetings")]
+  public class HelloController : ControllerBase
+  {
+    [HttpGet]
+    public IActionResult Get()
     {
-      [HttpGet]
-      public IActionResult Get()
-      {
-        return Ok("Hello, World!");
-      }
+      return Ok("Hello, World!");
     }
+
+    [HttpGet("sayhi")]
+    public IActionResult SayHi()
+    {
+      return Ok("Hi there!");
+    }
+  }
 }
